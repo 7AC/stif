@@ -12,8 +12,10 @@ def get_quotes(symbol):
     """Get a quote and notify"""
     quote = googlefinance.getQuotes(symbol)[0]
     url = 'https://www.google.com/finance?q=' + symbol
-    pync.Notifier.notify(quote['LastTradePrice'], title=symbol.upper(),
-                         subtitle=quote['LastTradeTime'], sender='com.apple.stocks',
+    subtitle = quote['LastTradePrice']
+    text = quote.get('Change') or quote['LastTradeTime']
+    pync.Notifier.notify(text, title=symbol.upper(),
+                         subtitle=subtitle, sender='com.apple.stocks',
                          activate='com.apple.Safari', open=url)
 
 
