@@ -1,2 +1,2 @@
 # stif
-Publish informations from Google Finance to Notification Center
+Publish information from Google Finance to Notification Center
